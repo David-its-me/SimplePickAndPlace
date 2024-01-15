@@ -8,3 +8,14 @@ Please make shure that the following ROS nodes already installed an running:
 - UR_Driver
 
 Install this package:
+```
+cd YOUR_ROS2_WS/src
+git clone git@github.com:David-its-me/SimplePickAndPlace.git
+cd YOUR_ROS2_WS
+colcon build
+```
+
+## Run the package
+```
+ros2 launch moveit2_scripts pick_and_place.launch.py  
+```
