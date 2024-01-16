@@ -8,6 +8,8 @@
 #include <functional>
 #include <memory>
 #include <string>
+#include <iostream>
+#include <unistd.h>
 
 #include "rclcpp/rclcpp.hpp"
 #include "ur_msgs/srv/set_io.hpp"
@@ -78,7 +80,7 @@ void close_gripper(std::shared_ptr<rclcpp::Node> ur_io_publisher_node, rclcpp::C
 
 }
 
-int main(int argc, char **argv) {
+int run(int argc, char **argv){
   rclcpp::init(argc, argv);
   rclcpp::NodeOptions node_options;
   node_options.automatically_declare_parameters_from_overrides(true);
@@ -481,4 +483,20 @@ int main(int argc, char **argv) {
 */
   rclcpp::shutdown();
   return 0;
+}
+
+int main(int argc, char **argv) {
+  //RCLCPP_INFO(LOGGER, "");
+  //RCLCPP_INFO(LOGGER, "--- Please press ENTER to start the script! ---");
+  //std::string str;
+  //std::getline(std::cin, str);
+  //int input;
+  //std::cin >> input;
+  
+  //RCLCPP_INFO(LOGGER, std:to_string(input));
+  RCLCPP_INFO(LOGGER, "The script sleeps for 60 seconds!");
+  sleep(60);
+
+  RCLCPP_INFO(LOGGER, "...the script starts now! \n");
+  return run(argc, argv);
 }
